@@ -1,7 +1,7 @@
 FROM rust:latest
 ARG TARGET="aarch64-unknown-linux-musl"
 RUN rustup target add ${TARGET}
-RUN apt-get update && apt-get install -y musl musl-tools musl-dev
+RUN apt-get update && apt-get install musl musl-tools musl-dev
 ENV C_INCLUDE_PATH="/usr/include"
 RUN if [ "${TARGET}" = "x86_64-unknown-linux-musl" ]; then \
         ln -sf /usr/include/x86_64-linux-gnu/asm /usr/include/asm; \
