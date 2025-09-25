@@ -9,5 +9,5 @@ RUN apt-get update && apt-get install -y musl musl-tools musl-dev && \
         ln -sf /usr/include/aarch64-linux-gnu/asm /usr/include/asm; \
     fi
 ADD repro/ repro/
-WORKDIR /repro
+WORKDIR repro
 RUN cargo build --target=${TARGET}
